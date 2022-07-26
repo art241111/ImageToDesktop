@@ -1,16 +1,19 @@
 package com.art241111.imagetodesktop.ui.screens.photosList.view
 
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import com.art241111.imagetodesktop.R
+import com.art241111.imagetodesktop.data.entity.Category
 import com.art241111.imagetodesktop.data.entity.PresentationOption
 
 /**
@@ -23,18 +26,22 @@ import com.art241111.imagetodesktop.data.entity.PresentationOption
 fun ToolbarForImageList(
     modifier: Modifier = Modifier,
     onBack: () -> Unit,
+    category: Category,
     presentationOption: PresentationOption,
     setPresentationOption: (PresentationOption) -> Unit
 ) {
-    Row(modifier) {
+    Row(modifier, verticalAlignment = Alignment.CenterVertically) {
         IconButton(
-
             onClick = { onBack() }
         ) {
             Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back")
         }
 
-        Spacer(modifier = Modifier.weight(1f))
+        Text(
+            modifier = Modifier.weight(1f),
+            text = category.name,
+            textAlign = TextAlign.Center
+        )
 
         IconButton(
             onClick = {

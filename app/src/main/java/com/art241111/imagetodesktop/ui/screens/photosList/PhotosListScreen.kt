@@ -4,10 +4,6 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.compose.collectAsLazyPagingItems
@@ -36,14 +32,14 @@ fun PhotosListScreen(
     onBack: () -> Unit,
     onOpenPhotoPreview: (image: Image) -> Unit
 ) {
-
     Column(modifier.fillMaxSize()) {
         ToolbarForImageList(
             onBack = onBack,
             presentationOption = categoryListViewModel.presentationOption,
             setPresentationOption = {
                 categoryListViewModel.presentationOption = it
-            }
+            },
+            category = category
         )
 
         val images = categoryListViewModel.getImagePagination(category).collectAsLazyPagingItems()
