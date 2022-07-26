@@ -4,7 +4,7 @@
 ## Благодарность
 Компании Unsplash за предоставления доступа к своему API.
 
-## Технологии
+## Tech Stack
 Для реализации данного приложения использовались такие технологии как:
 * Kotlin:
 * Jetpack Compose;
@@ -15,7 +15,7 @@
 Архитектурное решение: **MVVM**.
 
 ## Видео работы
-<img src="./screens/video.gif" style="width:200px;height:400px;">  
+<img src="./screens/video_last.gif" style="width:200px;height:400px;">  
 ## Скрины из приложения
 Экран категорий:   
 <img src="./screens/CategoryPreview.png" style="width:200px;height:400px;">  
