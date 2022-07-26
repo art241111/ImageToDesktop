@@ -36,19 +36,19 @@ fun PhotosListScreen(
     onBack: () -> Unit,
     onOpenPhotoPreview: (image: Image) -> Unit
 ) {
-    var presentationOption by remember { mutableStateOf(PresentationOption.COLUMN) }
+
     Column(modifier.fillMaxSize()) {
         ToolbarForImageList(
             onBack = onBack,
-            presentationOption = presentationOption,
+            presentationOption = categoryListViewModel.presentationOption,
             setPresentationOption = {
-                presentationOption = it
+                categoryListViewModel.presentationOption = it
             }
         )
 
         val images = categoryListViewModel.getImagePagination(category).collectAsLazyPagingItems()
 
-        when (presentationOption) {
+        when (categoryListViewModel.presentationOption) {
             PresentationOption.COLUMN -> {
                 PhotoListView(
                     images = images,
